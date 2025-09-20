@@ -1,0 +1,329 @@
+/* Creative Resume Template */
+
+.resume.creative {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    min-height: 11in;
+}
+
+.resume.creative::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.resume.creative > * {
+    position: relative;
+    z-index: 1;
+}
+
+.resume.creative h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+.resume.creative h1::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    border-radius: 1rem;
+    z-index: -1;
+}
+
+.resume.creative h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    margin: 2rem 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    position: relative;
+}
+
+.resume.creative h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.6), transparent);
+}
+
+.resume.creative .job-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1.5rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.resume.creative .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.15);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.resume.creative .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.resume.creative .contact-item:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.resume.creative .contact-item i {
+    color: rgba(255,255,255,0.9);
+    width: 16px;
+}
+
+.resume.creative .resume-section {
+    margin-bottom: 2rem;
+}
+
+.resume.creative .section-content {
+    margin-top: 1rem;
+}
+
+.resume.creative .section-item {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume.creative .section-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.4), transparent);
+}
+
+.resume.creative .section-item:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.resume.creative .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.resume.creative .item-title {
+    font-weight: 700;
+    color: white;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.resume.creative .item-subtitle {
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+}
+
+.resume.creative .item-meta {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.resume.creative .item-meta::before {
+    content: '📅';
+    font-size: 0.8rem;
+}
+
+.resume.creative .item-description {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+    background: rgba(0,0,0,0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid rgba(255,255,255,0.3);
+}
+
+.resume.creative .skills-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.resume.creative .skill-creative {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.resume.creative .skill-creative:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+}
+
+.resume.creative .summary-text {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    position: relative;
+    font-style: italic;
+}
+
+.resume.creative .summary-text::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 5rem;
+    color: rgba(255,255,255,0.2);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+    z-index: -1;
+}
+
+/* Creative template special effects */
+.resume.creative .section-item {
+    animation: creativeSlideIn 0.5s ease-out;
+}
+
+.resume.creative .section-item:nth-child(1) { animation-delay: 0.1s; }
+.resume.creative .section-item:nth-child(2) { animation-delay: 0.2s; }
+.resume.creative .section-item:nth-child(3) { animation-delay: 0.3s; }
+.resume.creative .section-item:nth-child(4) { animation-delay: 0.4s; }
+.resume.creative .section-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes creativeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Floating elements animation */
+.resume.creative::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Print styles for Creative template */
+@media print {
+    .resume.creative {
+        background: #2563eb !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .resume.creative::before,
+    .resume.creative::after {
+        display: none;
+    }
+
+    .resume.creative .section-item {
+        background: rgba(255,255,255,0.1) !important;
+        border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+
+    .resume.creative .contact-info,
+    .resume.creative .summary-text {
+        background: rgba(255,255,255,0.1) !important;
+        border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+
+    .resume.creative h1 {
+        background: rgba(255,255,255,0.1) !important;
+        border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+}

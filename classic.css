@@ -1,0 +1,165 @@
+/* Classic Resume Template */
+
+.resume.classic {
+    font-family: 'Merriweather', Georgia, serif;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+.resume.classic h1 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 0.5rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.resume.classic h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 1.5rem 0 0.75rem 0;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 0.25rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.resume.classic .job-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.resume.classic .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.resume.classic .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resume.classic .contact-item i {
+    color: #2563eb;
+    width: 16px;
+}
+
+.resume.classic .resume-section {
+    margin-bottom: 1.5rem;
+}
+
+.resume.classic .section-content {
+    margin-top: 0.5rem;
+}
+
+.resume.classic .section-item {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.resume.classic .section-item:last-child {
+    border-bottom: none;
+}
+
+.resume.classic .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.resume.classic .item-title {
+    font-weight: 600;
+    color: #1a202c;
+    font-size: 1rem;
+}
+
+.resume.classic .item-subtitle {
+    font-style: italic;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+.resume.classic .item-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.resume.classic .item-description {
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.resume.classic .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.resume.classic .skill-tag {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.resume.classic .summary-text {
+    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.6;
+    font-style: italic;
+    background: #f7fafc;
+    padding: 1rem;
+    border-left: 4px solid #2563eb;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Print styles for Classic template */
+@media print {
+    .resume.classic {
+        color: #000;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    .resume.classic h1 {
+        font-size: 18pt;
+        page-break-after: avoid;
+    }
+
+    .resume.classic h2 {
+        font-size: 14pt;
+        page-break-after: avoid;
+    }
+
+    .resume.classic .contact-info {
+        font-size: 10pt;
+    }
+
+    .resume.classic .skill-tag {
+        border: 1px solid #ccc;
+    }
+}

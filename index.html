@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Maker - Create Professional Resumes</title>
+    <meta name="description" content="Create professional resumes with live preview, multiple templates, and download options">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Template Stylesheets -->
+    <link rel="stylesheet" href="templates/classic.css" id="classic-template">
+    <link rel="stylesheet" href="templates/modern.css" id="modern-template">
+    <link rel="stylesheet" href="templates/creative.css" id="creative-template">
+
+    <!-- HTML2PDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <i class="fas fa-file-alt"></i>
+                    Resume Maker
+                </h1>
+                <div class="header-actions">
+                    <button id="loadData" class="btn btn-secondary" title="Load Resume Data">
+                        <i class="fas fa-folder-open"></i>
+                        Load
+                    </button>
+                    <button id="saveData" class="btn btn-secondary" title="Save Resume Data">
+                        <i class="fas fa-save"></i>
+                        Save
+                    </button>
+                    <button id="exportJSON" class="btn btn-secondary" title="Export as JSON">
+                        <i class="fas fa-download"></i>
+                        JSON
+                    </button>
+                    <button id="downloadPDF" class="btn btn-primary" title="Download as PDF">
+                        <i class="fas fa-file-pdf"></i>
+                        PDF
+                    </button>
+                    <button id="downloadHTML" class="btn btn-primary" title="Download as HTML">
+                        <i class="fas fa-file-code"></i>
+                        HTML
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application -->
+    <main class="app-main">
+        <div class="container">
+            <div class="app-layout">
+                <!-- Left Panel - Form -->
+                <div class="form-panel">
+                    <div class="panel-header">
+                        <h2>Resume Information</h2>
+                        <div class="template-selector">
+                            <label for="templateSelect">Template:</label>
+                            <select id="templateSelect" class="template-select">
+                                <option value="classic">Classic</option>
+                                <option value="modern">Modern</option>
+                                <option value="creative">Creative</option>
+                            </select>
+                        </div>
+                        <div class="color-picker">
+                            <label for="accentColor">Accent Color:</label>
+                            <input type="color" id="accentColor" value="#2563eb">
+                        </div>
+                    </div>
+
+                    <form id="resumeForm" class="resume-form">
+                        <!-- Personal Information -->
+                        <section class="form-section" data-section="personal">
+                            <div class="section-header">
+                                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                                <button type="button" class="btn-icon toggle-section" data-section="personal">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jobTitle">Job Title *</label>
+                                    <input type="text" id="jobTitle" name="jobTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" name="location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Website/Portfolio</label>
+                                    <input type="url" id="website" name="website">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn</label>
+                                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="summary">Professional Summary</label>
+                                    <textarea id="summary" name="summary" rows="4" placeholder="Brief summary of your professional background and key strengths..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="photo">Photo</label>
+                                    <div class="photo-upload">
+                                        <input type="file" id="photo" name="photo" accept="image/*">
+                                        <div class="photo-preview">
+                                            <img id="photoPreview" src="" alt="Profile Photo">
+                                            <button type="button" id="removePhoto" class="btn-icon">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Experience Section -->
+                        <section class="form-section" data-section="experience">
+                            <div class="section-header">
+                                <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                                <div class="section-actions">
+                                    <button type="button" class="btn-icon toggle-section" data-section="experience">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon add-item" data-section="experience">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="section-content" id="experienceList">
+                                <!-- Experience items will be added here -->
+                            </div>
+                        </section>
+
+                        <!-- Education Section -->
+                        <section class="form-section" data-section="education">
+                            <div class="section-header">
+                                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                                <div class="section-actions">
+                                    <button type="button" class="btn-icon toggle-section" data-section="education">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon add-item" data-section="education">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="section-content" id="educationList">
+                                <!-- Education items will be added here -->
+                            </div>
+                        </section>
+
+                        <!-- Skills Section -->
+                        <section class="form-section" data-section="skills">
+                            <div class="section-header">
+                                <h3><i class="fas fa-star"></i> Skills</h3>
+                                <div class="section-actions">
+                                    <button type="button" class="btn-icon toggle-section" data-section="skills">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon add-item" data-section="skills">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="section-content" id="skillsList">
+                                <!-- Skills items will be added here -->
+                            </div>
+                        </section>
+
+                        <!-- Projects Section -->
+                        <section class="form-section" data-section="projects">
+                            <div class="section-header">
+                                <h3><i class="fas fa-project-diagram"></i> Projects</h3>
+                                <div class="section-actions">
+                                    <button type="button" class="btn-icon toggle-section" data-section="projects">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon add-item" data-section="projects">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="section-content" id="projectsList">
+                                <!-- Projects items will be added here -->
+                            </div>
+                        </section>
+
+                        <!-- Certifications Section -->
+                        <section class="form-section" data-section="certifications">
+                            <div class="section-header">
+                                <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                                <div class="section-actions">
+                                    <button type="button" class="btn-icon toggle-section" data-section="certifications">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon add-item" data-section="certifications">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="section-content" id="certificationsList">
+                                <!-- Certifications items will be added here -->
+                            </div>
+                        </section>
+
+                        <!-- Languages Section -->
+                        <section class="form-section" data-section="languages">
+                            <div class="section-header">
+                                <h3><i class="fas fa-language"></i> Languages</h3>
+                                <div class="section-actions">
+                                    <button type="button" class="btn-icon toggle-section" data-section="languages">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <button type="button" class="btn-icon add-item" data-section="languages">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="section-content" id="languagesList">
+                                <!-- Languages items will be added here -->
+                            </div>
+                        </section>
+                    </form>
+                </div>
+
+                <!-- Right Panel - Preview -->
+                <div class="preview-panel">
+                    <div class="panel-header">
+                        <h2>Live Preview</h2>
+                        <div class="preview-actions">
+                            <button id="zoomIn" class="btn-icon" title="Zoom In">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button id="zoomOut" class="btn-icon" title="Zoom Out">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <button id="resetZoom" class="btn-icon" title="Reset Zoom">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="preview-container">
+                        <div id="resumePreview" class="resume-preview">
+                            <!-- Resume preview will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Hidden file input for JSON import -->
+    <input type="file" id="importFile" accept=".json" style="display: none;">
+
+    <!-- Main JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>

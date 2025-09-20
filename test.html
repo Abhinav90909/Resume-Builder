@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <script>
+        console.log('Test page loaded');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            document.getElementById('testBtn').addEventListener('click', function() {
+                alert('JavaScript is working!');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Test Page</h1>
+    <p>If you can see this and click the button works, basic functionality is OK.</p>
+    <button id="testBtn">Test JavaScript</button>
+</body>
+</html>
